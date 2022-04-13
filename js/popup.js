@@ -59,8 +59,8 @@ function initCountdownDisplay() {
   showRemain(showRemainEl, timeVal)
 }
 
-function changeTimeVal(e) {
-  console.log(e)
+function setBgDuration() {
+  bg.setDuration(timeInput.value)
 }
 
 
@@ -78,6 +78,10 @@ continueBtn.onclick = continueCountdown
 
 var resetBtn = document.getElementById("reset_btn")
 resetBtn.onclick = reset
+
+var setTimeBtn = document.getElementById("set_time_btn")
+var timeInput = document.getElementById("time_input")
+setTimeBtn.onclick = setBgDuration
 
 
 initCountdownDisplay()

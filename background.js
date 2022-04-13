@@ -57,6 +57,10 @@ function getLastCountStart() {
   return lastCountStart
 }
 
+function setDuration(_duration) {
+  duration = _duration
+}
+
 window.onload = function() {
   consistCountdown(duration)
 }
