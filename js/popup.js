@@ -5,7 +5,7 @@ function showRemain(el, timeVal) {
   let hour = Math.floor(timeVa / 3600000)
   let minute = Math.floor((timeVa % 3600000) / 60000)
   let second = Math.floor((timeVa % 60000) / 1000)
-  el.innerHTML = `${hour}: ${minute}: ${second}`
+  el.innerHTML = `${hour < 10? '0'+hour: hour}: ${minute < 10? '0'+minute: minute}: ${second < 10? '0'+second: second}`
   if(!pause) {
     countdownTimer = setInterval(() => {
       if(second == 0) {
@@ -27,7 +27,7 @@ function showRemain(el, timeVal) {
       else {
         second -= 1
       }
-      el.innerHTML = `${hour}: ${minute}: ${second}`
+      el.innerHTML = `${hour < 10? '0'+hour: hour}: ${minute < 10? '0'+minute: minute}: ${second < 10? '0'+second: second}`
     }, 1000)
   }
 }
@@ -55,6 +55,7 @@ function reset() {
 }
 
 function initCountdownDisplay() {
+  console.log("bg in initCountdownDisplay:", bg)
   let {duration, remainTime, lastCountStart, noticeTitle, noticeContent, isPause} = bg
   noticeTitleInput.value = noticeTitle
   noticeContentInput.value = noticeContent
@@ -75,6 +76,17 @@ function setBgNotice() {
     noticeTitleInput.value,
     noticeContentInput.value,
   )
+}
+
+function setBgLastLeave() {
+  pauseCountdown()
+  bg.setLastLeave()
+}
+
+function setBgRestTime() {
+  reset()
+  bg.setRestTime()
+  leaveTimeSpan.innerHTML = Math.floor(bg.restInfo.restTime / (60 * 1000))
 }
 
 
@@ -107,6 +119,14 @@ var noticeTitleInput = document.getElementById("notice_title_input")
 var noticeContentInput = document.getElementById("notice_content_input")
 var changeNoticeBtn = document.getElementById("change_notice_btn")
 changeNoticeBtn.onclick = setBgNotice
+
+// 获取行为元素
+var leaveTime = 0 // 离开座位时间统计
+var leaveSeatBtn = document.getElementById("leave_seat_btn")
+leaveSeatBtn.onclick = setBgLastLeave
+var returnSeatBtn = document.getElementById("return_seat_btn")
+returnSeatBtn.onclick = setBgRestTime
+var leaveTimeSpan = document.getElementById("leave_time")
 
 
 initCountdownDisplay()

@@ -1,0 +1,79 @@
+body::-webkit-scrollbar { 
+  display: none !important; 
+} 
+body::-webkit-scrollbar-button { 
+  display: none !important; 
+} 
+
+.fc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button {
+  padding: 2px 6px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background-color: #fff;
+}
+.button:hover {
+  border-color: #008CFF;
+}
+input {
+  border: 1px solid #999;
+  border-radius: 4px;
+  height: 25px;
+  padding-left: 6px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+textarea {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 6px 6px;
+  font-family: Noto Sans S Chinese;
+}
+label {
+  margin-bottom: 6px;
+}
+
+.main_wrap {
+  width: 100%;
+  /* gap: 20px; */
+  font-family: Noto Sans S Chinese;
+  /* padding: 20px; */
+}
+
+.display_time_area {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.display_time_area #show_remain {
+  font-size: 36px;
+  font-family: Bahnschrift;
+  color: #008CFF;
+}
+
+.set_time_area {
+  margin-bottom: 10px;
+}
+
+.set_time_area #time_input {
+  height: 25px;
+  width: 150px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  margin-top: 6px;
+}
+
+.record_rest_area {
+  margin-top: 20px;
+  width: 100%;
+}
+.record_rest_area #leave_time {
+  margin-top: 6px;
+}

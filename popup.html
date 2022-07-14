@@ -1,32 +1,50 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="./style/popup.css" />
     <style>
-
+      
     </style>
   </head>
   <body>
-    <div class="set_time_area">
-      <label>set time: <input type="text" value="" id="time_input"></label>
-      <button id="set_time_btn">ok</button>
+    <div class="main_wrap fc">
+      <div class="display_time_area fc">
+        <div class="remain_tip">距离下一次站起还有：</div>
+        <div id="show_remain"></div>
+        <div class="control_area">
+          <button class="button" id="pause_btn">暂停</button>
+          <button class="button" id="continue_btn">继续</button>
+          <button class="button" id="reset_btn">重置</button>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="set_time_area">
+        <label>设置最长久坐时间: <input type="number" value="" id="time_input" placeholder="请输入毫秒数"></label>
+        <button class="button" id="set_time_btn">ok</button>
+      </div>
+
+      <hr>
+  
+      <div class="notice_input_area">
+        <label>输入提醒标题 <input type="text" id="notice_title_input"></label><br>
+        <label>输入提醒内容 <textarea name="" id="notice_content_input" cols="30" rows="5"></textarea></label><br>
+        <button class="button" id="change_notice_btn">更改消息提醒内容</button>
+      </div>
+
+      <hr>
+
+      <div class="record_rest_area">
+        <button class="button" id="leave_seat_btn">离开座位</button>
+        <button class="button" id="return_seat_btn">回到座位</button><br>
+        <!-- <label>离开原因: <input type="text"></label> -->
+        <div>当日已离开座位 <span id="leave_time">0</span> 分钟</div>
+      </div>
+  
+      
     </div>
 
-    <div class="display_time_area">
-      <div id="show_remain"></div>
-    </div>
-    
-    <div class="control_area">
-      <button id="pause_btn">暂停</button>
-      <button id="continue_btn">继续</button>
-      <button id="reset_btn">重置</button>
-    </div>
-
-    <div class="notice_input_area">
-      <label>输入提醒标题 <input type="text" id="notice_title_input"></label><br>
-      <label>输入提醒内容 <textarea name="" id="notice_content_input" cols="30" rows="10"></textarea></label><br>
-      <button id="change_notice_btn">更改消息提醒内容</button>
-    </div>
-    
     <script src="js/popup.js"></script>
   </body>
 </html>
