@@ -17,6 +17,7 @@ function showRemain(el, timeVal) {
           else {
             hour -= 1
             minute = 59
+            second = 59
           }
         }
         else {

@@ -1,4 +1,5 @@
 var duration = 3600000 // 毫秒数 - 一小时
+var originalDuration = 3600000
 var remainTime = 0
 var timer = null
 var lastCountStart = null
@@ -57,13 +58,15 @@ function continueCd() {
 function reset() {
   remainTime = 0
   clearInterval(timer)
-  duration = 3600000
+  duration = originalDuration
   isPause = false
+  console.log("duration in reset:", duration)
   consistCountdown(duration)
 }
 
 function setDuration(_duration) {
   duration = _duration
+  originalDuration = _duration
 }
 
 function setNotice(title = '消息提醒', content) {
@@ -83,5 +86,6 @@ function setRestTime() {
 }
 
 window.onload = function() {
+  console.log("bg!")
   consistCountdown(duration)
 }
